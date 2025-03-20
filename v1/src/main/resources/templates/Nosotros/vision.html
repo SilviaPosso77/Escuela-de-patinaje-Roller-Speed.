@@ -1,6 +1,6 @@
 <!-- vision.html -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Roller Speed</a>
-        </div>
-    </nav>
+    <div th:insert="~{fragments/navbar :: navbar}">
+    </div>
     <div class="container mt-5">
         <h1>Visión</h1>
         <p>Ser la escuela de patinaje líder en la región Caribe, reconocida por su excelencia en la formación deportiva, la implementación de metodologías innovadoras y la promoción del patinaje como una disciplina de alto rendimiento y recreación para todas las edades.</p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
