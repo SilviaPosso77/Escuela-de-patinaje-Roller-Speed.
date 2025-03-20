@@ -1,0 +1,38 @@
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" th:href="@{/}">Roller Speed</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-dark" id="navbarNav" >
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Nosotros
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/mision}">Misión</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/vision}">Visión</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/valores}">Valores</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/servicios}">Servicios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/eventos}">Eventos</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Horarios
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Horarios/horario}">Horario</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Horarios/horarioprofesores}">Horario Profesores</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Horarios/horarioestudiantes}">Horario Estudiantes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
