@@ -1,14 +1,24 @@
 package com.rollerspeed.v1.Model;
 
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name="clase")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Clase {
     @Id
     @Column(name = "IDCLASE", nullable = false, unique = true)
@@ -29,64 +39,8 @@ public class Clase {
     @Column(name="DIA", nullable= false, length = 16)
     private String Dia;
 
-    public Clase(int IDclase, String NombreClase, Date FechaInicio, Date FechaFinal, String Horario, String Dia){
-        this.IDclase= IDclase;
-        this.NombreClase= NombreClase;
-        this.FechaInicio= FechaInicio;
-        this.FechaFinal= FechaFinal;
-        this.Horario= Horario;
-        this.Dia= Dia;
-    }
+    @OneToMany(mappedBy = "clase")
+    private List<Estudiante> estudiantes;
 
-    public Clase(){
-
-    }
-
-    public int getIDclase(){
-        return IDclase;
-    }
-
-    public void setIDclase(int IDclase){
-        this.IDclase=IDclase;
-    }
     
-    public String getNombreClase(){
-        return NombreClase;
-    }
-    
-    public void setNombreClase(String NombreClase){
-        this.NombreClase=NombreClase;
-    }
-
-    public Date getFechaInicio(){
-        return FechaInicio;
-    }
-
-    public void setFechaInicio(Date FechaInicio){
-        this.FechaInicio=FechaInicio;
-    }
-
-    public Date getFechaFinal(){
-        return FechaFinal;
-    }
-
-    public void setFechaFinal(Date FechaFinal){
-        this.FechaFinal=FechaFinal;
-    }
-
-    public String getHorario(){
-        return Horario;
-    }
-    
-    public void setHorario(String Horario){
-        this.Horario=Horario;
-    }
-    
-    public String getDia(){
-        return Dia;
-    }
-    
-    public void setDia(String Dia){
-        this.Dia=Dia;
-    }
 }

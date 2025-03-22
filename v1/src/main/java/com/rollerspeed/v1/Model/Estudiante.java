@@ -23,13 +23,15 @@ public class Estudiante {
     @Column(nullable = false)
     private String apellido;
 
-
-    @Column(nullable = false, unique = true)
-    private String idClase;
+    @ManyToOne
+    @JoinColumn(name = "idClase", referencedColumnName = "IDCLASE")
+    private Clase clase;
 
     @Column(nullable = false)
     private Date fechaNacimiento;
 
     @Column(nullable = false)
     private String genero;
+
+
 }
