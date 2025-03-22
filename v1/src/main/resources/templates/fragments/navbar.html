@@ -30,6 +30,17 @@
                             <li class="dropdown-item"><a class="nav-link" th:href="@{/Horarios/horarioestudiantes}">Horario Estudiantes</a></li>
                         </ul>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profesores
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a class="dropdown-item text-white" th:href="@{/profesores}">Listar Profesores</a></li>
+                            <li><a class="dropdown-item text-white" th:href="@{profesores/registro}">Registrar Profesor</a></li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/estudiantes}">Listar Estudiantes</a>
                     </li>
