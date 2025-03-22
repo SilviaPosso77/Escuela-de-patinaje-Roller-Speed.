@@ -32,7 +32,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Clase</label>
-            <select class="form-control" th:field="*{idClase}" required>
+            <select class="form-control" th:field="*{clase}" required>
                 <option th:each="clase : ${clases}" th:value="${clase.IDclase}" th:text="${#strings.concat(clase.NombreClase, ', ', clase.Horario, ', ', clase.Dia)}"></option>
             </select>
         </div>

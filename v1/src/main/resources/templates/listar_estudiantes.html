@@ -19,7 +19,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Id Clase</th>
+                <th>Nombre Clase</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Género</th>
             </tr>
@@ -29,7 +29,7 @@
                 <td th:text="${estudiante.id}"></td>
                 <td th:text="${estudiante.nombre}"></td>
                 <td th:text="${estudiante.apellido}"></td>
-                <td th:text="${estudiante.idClase}"></td>
+                <td th:text="${estudiante.clase.NombreClase}"></td>
                 <td th:text="${estudiante.fechaNacimiento}"></td>
                 <td th:text="${estudiante.genero}"></td>
             </tr>
