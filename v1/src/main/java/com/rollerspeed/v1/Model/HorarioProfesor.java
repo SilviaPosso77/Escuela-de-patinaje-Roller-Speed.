@@ -1,4 +1,4 @@
-package com.rollerspeed.v1.Entity;
+package com.rollerspeed.v1.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

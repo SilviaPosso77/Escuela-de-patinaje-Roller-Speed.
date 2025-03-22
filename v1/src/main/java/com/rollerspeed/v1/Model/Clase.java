@@ -1,4 +1,4 @@
-package com.rollerspeed.v1.Entity;
+package com.rollerspeed.v1.Model;
 
 import java.sql.Date;
 

@@ -1,6 +1,6 @@
 package com.rollerspeed.v1.Service;
 
-import com.rollerspeed.v1.Entity.HorarioEstudiante;
+import com.rollerspeed.v1.Model.HorarioEstudiante;
 import com.rollerspeed.v1.Repository.HorarioEstudianteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

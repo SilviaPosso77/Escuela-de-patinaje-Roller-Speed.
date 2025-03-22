@@ -1,5 +1,7 @@
 package com.rollerspeed.v1.Model;
 
+import java.sql.Date;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,7 +14,7 @@ import lombok.*;
 public class Estudiante {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -23,10 +25,10 @@ public class Estudiante {
 
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String idClase;
 
     @Column(nullable = false)
-    private int edad;
+    private Date fechaNacimiento;
 
     @Column(nullable = false)
     private String genero;
