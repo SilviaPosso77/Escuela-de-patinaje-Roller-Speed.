@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.rollerspeed.v1.Model.Estudiante;
-import java.util.List;
+// import java.util.List;
 
 
 @Repository
