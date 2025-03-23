@@ -23,9 +23,9 @@ public class Profesor {
     @Column(nullable = false)
     private String apellido;
 
-
-    @Column(nullable = false, unique = true)
-    private String idClase;
+    @ManyToOne
+    @JoinColumn(name = "idClase", referencedColumnName = "IDCLASE")
+    private Clase clase;
 
     @Column(nullable = false)
     private Date fechaNacimiento;
