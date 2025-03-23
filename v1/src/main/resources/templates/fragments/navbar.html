@@ -13,10 +13,10 @@
                             Acerca de Nosotros
                         </a>
                         <ul class="dropdown-menu bg-dark">
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/Nosotros/mision}">Misión</a></li>
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/Nosotros/vision}">Visión</a></li>
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/Nosotros/valores}">Valores</a></li>
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/Nosotros/servicios}">Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/mision}">Misión</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/vision}">Visión</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/valores}">Valores</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/servicios}">Servicios</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/Nosotros/eventos}">Eventos</a></li>
@@ -25,9 +25,9 @@
                             Horarios
                         </a>
                         <ul class="dropdown-menu bg-dark">
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/Horarios/horario}">Horario</a></li>
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/Horarios/horarioprofesores}">Horario Profesores</a></li>
-                            <li class="dropdown-item"><a class="nav-link" th:href="@{/horarios/estudiantes}">Horario Estudiantes</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/Horarios/horario}">Horario</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/horarios/profesores}">Horario Profesores</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/horarios/estudiantes}">Horario Estudiantes</a></li>
                         </ul>
                     </li>
 
@@ -36,17 +36,26 @@
                             Profesores
                         </a>
                         <ul class="dropdown-menu bg-dark">
-                            <li><a class="dropdown-item text-white" th:href="@{/profesores}">Listar Profesores</a></li>
-                            <li><a class="dropdown-item text-white" th:href="@{profesores/registro}">Registrar Profesor</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/profesores}">Listar Profesores</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/profesores/registro}">Registrar Profesor</a></li>
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/estudiantes}">Listar Estudiantes</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Estudiantes
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/estudiantes}">Listar Estudiantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/estudiantes/registro}">Registrar Estudiante</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/estudiantes/registro}">Registrar Estudiante</a>
-                    </li>
+
+                    
                     
                 </ul>
             </div>
