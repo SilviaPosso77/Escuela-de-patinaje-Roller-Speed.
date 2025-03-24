@@ -19,4 +19,9 @@ public class ClaseServicioImp implements ClaseServicio {
 
         return(List<Clase>) repositorio.findAll();
     }
+
+    @Override
+    public void registrarClase(Clase clase){
+        repositorio.save(clase);
+    }
 }

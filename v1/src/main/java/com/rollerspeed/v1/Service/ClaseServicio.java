@@ -6,4 +6,7 @@ import com.rollerspeed.v1.Model.Clase;
 
 public interface ClaseServicio {
     public List<Clase> listarTodasLasClases();
+    public void registrarClase(Clase clase);
+
 }
+
