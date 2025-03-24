@@ -50,8 +50,10 @@
             </select>
         </div>
         
-        
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <div th:if="${clases.isEmpty() or clases==null}">
+            <p>Primero crear una clase</p>
+        </div>
+        <button th:unless="${clases==null or clases.isEmpty()}" type="submit" class="btn btn-primary">Registrar</button>
     </form>
 </div>
 
