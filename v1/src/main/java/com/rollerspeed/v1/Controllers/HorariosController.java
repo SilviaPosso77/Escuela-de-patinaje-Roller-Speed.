@@ -3,7 +3,6 @@ package com.rollerspeed.v1.Controllers;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +26,6 @@ public class HorariosController {
     private boolean vistaEstudianteCreada = false;
     private boolean vistaProfesorCreada = false;
 
-    @Autowired
     public HorariosController(HorariosEstudiantesRepositorio HorariosEstudiantes,JdbcTemplate jdbcTemplate, HorariosProfesoresRepositorio HorariosProfesores) {
         this.HorariosEstudiantes = HorariosEstudiantes;
         this.jdbcTemplate = jdbcTemplate;
