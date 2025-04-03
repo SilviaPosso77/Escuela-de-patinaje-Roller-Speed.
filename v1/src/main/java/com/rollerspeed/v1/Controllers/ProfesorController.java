@@ -39,7 +39,7 @@ public class ProfesorController {
     )
     public String listarProfesores(Model model) {
         model.addAttribute("profesores", profesorService.listarProfesores());
-        return "listar_profesores";
+        return "Profesores/listar_profesores";
     }
 
     @GetMapping("/registro")
@@ -52,7 +52,7 @@ public class ProfesorController {
     public String formularioRegistro(Model model) {
         model.addAttribute("profesor", new Profesor());
         model.addAttribute("clases",claseServicio.listarTodasLasClases());
-        return "registro_profesor";
+        return "Profesores/registro_profesor";
 
     }
 
@@ -66,5 +66,37 @@ public class ProfesorController {
             @ModelAttribute Profesor profesor) {
         profesorService.registrarProfesor(profesor);
         return "redirect:/profesores/registro";
+    }
+
+    @GetMapping("/editar/{id}")
+    @Operation(
+        summary = "Editar datos profesor",
+        description = "Busca los datos de un profesor por Id y lo envia para su edicion"
+    )
+    public String editarProfesor(@PathVariable Long id, Model model){
+        model.addAttribute("profesor", profesorService.ObtenerId(id));
+        model.addAttribute("clases", claseServicio.listarTodasLasClases());
+        return "Profesores/editar_profesores";
+    }
+
+    @PostMapping("/{id}")
+    @Operation(
+        summary = "Actualizar profesor",
+        description = "Recibe los nuevos datos de un profesor y los actualiza"
+    )
+    public String actualizarProfesor(@PathVariable Long id, @ModelAttribute("profesor") Profesor datosNuevos){
+        Profesor datosAntiguos = profesorService.ObtenerId(id);
+        profesorService.ActualizarProfesor(datosAntiguos, datosNuevos);
+        return "redirect:/profesores";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    @Operation(
+        summary = "Eliminar profesor",
+        description = "Selecciona un profesor por Id y lo borra de la base de datos"
+    )
+    public String eliminarProfesor(@PathVariable Long id){
+        profesorService.EliminarProfesor(id);
+        return "redirect:/profesores";
     }
 }
