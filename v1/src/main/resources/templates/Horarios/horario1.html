@@ -22,6 +22,7 @@
                             <th>Fecha Final</th>
                             <th>Horario</th>
                             <th>Dia</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,9 @@
                             <td th:text="${clase.FechaFinal}">Fecha Final</td>
                             <td th:text="${clase.Horario}">Horario</td>
                             <td th:text="${clase.Dia}">Dia</td>
+                            <td>
+                                <a th:href="@{/clases/editar/{id}(id=${clase.IDclase})}" class="btn btn-info">Editar</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
