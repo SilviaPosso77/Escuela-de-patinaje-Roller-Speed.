@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -47,7 +48,7 @@ public class ClaseController {
     )
     public String formularioRegistro(Model modelo) {
         modelo.addAttribute("clase", new Clase());
-        return "registro_clases";
+        return "Clases/registro_clases";
     }
 
     @PostMapping("/registro")
@@ -61,6 +62,29 @@ public class ClaseController {
         claseServicio.registrarClase(clase);
         return "redirect:/clases/registro";
     }
+
+    @GetMapping("/editar/{id}")
+    @Operation(
+        summary = "Editar datos clase",
+        description = "Busca los datos de un clase por Id y lo envia para su edicion"
+    )
+    public String editarClase(@PathVariable int id, Model model){
+        model.addAttribute("clase", claseServicio.ObtenerId(id));
+        return "Clases/editar_clases";
+    }
+
+    @PostMapping("/{id}")
+    @Operation(
+        summary = "Actualizar clase",
+        description = "Recibe los nuevos datos de una clase y los actualiza"
+    )
+    public String actualizarClase(@PathVariable int id, @ModelAttribute("clase") Clase datosNuevos){
+        Clase datosAntiguos = claseServicio.ObtenerId(id);
+        claseServicio.ActualizarClase(datosAntiguos, datosNuevos);
+        return "redirect:/clases/horario";
+    }
+
+
 
     
 }

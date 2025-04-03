@@ -24,4 +24,19 @@ public class ClaseServicioImp implements ClaseServicio {
     public void registrarClase(Clase clase){
         repositorio.save(clase);
     }
+
+    @Override
+    public Clase ObtenerId(int id){
+        return repositorio.findById(id).get();
+    }
+
+    @Override
+    public Clase ActualizarClase(Clase datosAntiguos, Clase datosNuevos){
+        datosAntiguos.setNombreClase(datosNuevos.getNombreClase());
+        datosAntiguos.setFechaFinal(datosNuevos.getFechaFinal());
+        datosAntiguos.setFechaInicio(datosNuevos.getFechaInicio());
+        datosAntiguos.setHorario(datosNuevos.getHorario());
+        datosAntiguos.setDia(datosNuevos.getDia());
+        return repositorio.save(datosAntiguos);
+    }
 }
