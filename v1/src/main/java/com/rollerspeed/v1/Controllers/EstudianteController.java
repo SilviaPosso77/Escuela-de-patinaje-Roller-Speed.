@@ -1,6 +1,5 @@
 package com.rollerspeed.v1.Controllers;
 
-import com.rollerspeed.v1.DTO.ClaseDTO;
 import com.rollerspeed.v1.DTO.EstudianteDTO;
 import com.rollerspeed.v1.Model.Estudiante;
 import com.rollerspeed.v1.Service.ClaseServicio;
@@ -16,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Tag(name = "Estudiantes", description = "Operaciones con estudiantes")
 @Controller
@@ -40,7 +41,7 @@ public class EstudianteController {
     )
     public String listarEstudiantes(Model model) {
         model.addAttribute("estudiantes", estudianteService.listarEstudiantes());
-        return "listar_estudiantes";
+        return "Estudiantes/listar_estudiantes";
     }
 
     @GetMapping("/registro")
@@ -53,7 +54,7 @@ public class EstudianteController {
     public String formularioRegistro(Model model) {
         model.addAttribute("estudiante", new Estudiante());
         model.addAttribute("clases",claseServicio.listarTodasLasClases());
-        return "registro_estudiante";
+        return "Estudiantes/registro_estudiante";
 
     }
 
@@ -68,4 +69,37 @@ public class EstudianteController {
         estudianteService.registrarEstudiante(estudiante);
         return "redirect:/estudiantes/registro";
     }
+
+    @GetMapping("/editar/{id}")
+    @Operation(
+        summary = "Editar datos estudiante",
+        description = "Busca los datos de un estudiante por Id y lo envia para su edicion"
+    )
+    public String editarEstudiante(@PathVariable Long id, Model model) {
+        model.addAttribute("estudiante", estudianteService.ObtenerId(id));
+        model.addAttribute("clases",claseServicio.listarTodasLasClases());
+        return "Estudiantes/editar_estudiantes";
+    }
+
+    @PostMapping("/{id}")
+    @Operation(
+        summary = "Actualizar estudiante",
+        description = "Recibe los nuevos datos de un estudiante y los actualiza"
+    )
+    public String actualizarEstudiante(@PathVariable Long id, @ModelAttribute("estudiante") Estudiante datosNuevos){
+        Estudiante datosAntiguos = estudianteService.ObtenerId(id);
+        estudianteService.ActualizarEstudiante(datosAntiguos, datosNuevos);
+        return "redirect:/estudiantes";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    @Operation(
+        summary = "Eliminar estudiante",
+        description = "Selecciona un estudiante por Id y lo borra de la base de datos"
+    )
+    public String eliminarEstudiante(@PathVariable Long id){
+        estudianteService.EliminarEstudiante(id);
+        return "redirect:/estudiantes";
+    }
+    
 }
