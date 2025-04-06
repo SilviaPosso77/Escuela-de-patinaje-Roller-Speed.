@@ -53,7 +53,7 @@ public class EstudianteService {
                                 .clase(clase)
                                 .build();
         UserEntity user = UserEntity.builder()
-                        .username(estudiante.getEmail()) //Asigna el email como nombre de usuario
+                        .username(estudianteDTO.getEmail()) //Asigna el email como nombre de usuario
                         .password(estudianteDTO.getContraseña())
                         .roles(obtenerRol())
                         .build();
