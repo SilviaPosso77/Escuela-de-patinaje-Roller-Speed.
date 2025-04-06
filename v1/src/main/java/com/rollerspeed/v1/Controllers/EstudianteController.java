@@ -2,6 +2,7 @@ package com.rollerspeed.v1.Controllers;
 
 import com.rollerspeed.v1.DTO.EstudianteDTO;
 import com.rollerspeed.v1.Model.Estudiante;
+import com.rollerspeed.v1.Model.UserEntity;
 import com.rollerspeed.v1.Service.ClaseServicio;
 import com.rollerspeed.v1.Service.EstudianteService;
 
@@ -11,6 +12,8 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +55,7 @@ public class EstudianteController {
                     "de una vez en al menos una clase"
     )
     public String formularioRegistro(Model model) {
-        model.addAttribute("estudiante", new Estudiante());
+        model.addAttribute("estudianteDTO", new EstudianteDTO());
         model.addAttribute("clases",claseServicio.listarTodasLasClases());
         return "Estudiantes/registro_estudiante";
 
@@ -65,8 +68,8 @@ public class EstudianteController {
     )
     public String registrarEstudiante(
             @Parameter(description = "Datos del estudiante a registrar.", required = true, content = @Content(schema = @Schema(implementation = EstudianteDTO.class)))
-            @ModelAttribute Estudiante estudiante) {
-        estudianteService.registrarEstudiante(estudiante);
+            @Valid @ModelAttribute EstudianteDTO estudianteDTO) {
+        estudianteService.registrarEstudiante(estudianteDTO);
         return "redirect:/estudiantes/registro";
     }
 
