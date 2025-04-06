@@ -7,7 +7,11 @@
 <div class="container text-center mt-5">
   <h1>Horarios Estudiantes</h1>
 </div>
-<div class="tableClases" style="max-width: 1000px; margin: 0 auto;">
+<div th:if="${resultados == null or resultados.isEmpty()}">
+  <p>No hay clases registradas</p>
+</div>
+
+<div th:unless="{resultados == null or resultados.isEmpty()}"class="tableClases" style="max-width: 1000px; margin: 0 auto;">
   <table class="table table-striped table-bordered">
     <thead>
     <tr>
