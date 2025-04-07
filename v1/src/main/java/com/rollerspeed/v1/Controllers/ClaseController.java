@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.rollerspeed.v1.Service.ClaseServicio;
 import com.rollerspeed.v1.Model.Clase;
 
+@Service 
 @Tag(name="Clases", description = "Operaciones sobre crear y listar las clases")
 @Controller
 @RequestMapping("/clases")
@@ -83,8 +85,5 @@ public class ClaseController {
         claseServicio.ActualizarClase(datosAntiguos, datosNuevos);
         return "redirect:/clases/horario";
     }
-
-
-
     
 }
