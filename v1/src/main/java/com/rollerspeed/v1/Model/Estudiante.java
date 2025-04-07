@@ -3,14 +3,16 @@ package com.rollerspeed.v1.Model;
 import java.sql.Date;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
 @Table(name = "estudiantes")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Estudiante {
     
     @Id
@@ -23,6 +25,10 @@ public class Estudiante {
     @Column(nullable = false)
     private String apellido;
 
+    @Email
+    @NotBlank
+    private String email;
+
     @ManyToOne
     @JoinColumn(name = "idClase", referencedColumnName = "IDCLASE")
     private Clase clase;
@@ -32,6 +38,10 @@ public class Estudiante {
 
     @Column(nullable = false)
     private String genero;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private UserEntity user;
 
 
 }
