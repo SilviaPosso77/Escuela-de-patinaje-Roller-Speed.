@@ -44,19 +44,19 @@ public class EstudianteService {
 
         Clase clase = claseRepositorio.findById(estudianteDTO.getIdClase()).get();
 
-        Estudiante estudiante = Estudiante.builder()
-                                .id(estudianteDTO.getId())
-                                .nombre(estudianteDTO.getNombre())
-                                .apellido(estudianteDTO.getApellido())
-                                .fechaNacimiento(estudianteDTO.getFechaNacimiento())
-                                .genero(estudianteDTO.getGenero())
-                                .clase(clase)
-                                .build();
-        UserEntity user = UserEntity.builder()
-                        .username(estudianteDTO.getEmail()) //Asigna el email como nombre de usuario
-                        .password(estudianteDTO.getContraseña())
-                        .roles(obtenerRol())
-                        .build();
+        Estudiante estudiante = new Estudiante();
+        estudiante.setId(estudianteDTO.getId());
+        estudiante.setNombre(estudianteDTO.getNombre());
+        estudiante.setApellido(estudianteDTO.getApellido());
+        estudiante.setEmail(estudianteDTO.getEmail());
+        estudiante.setFechaNacimiento(estudianteDTO.getFechaNacimiento());
+        estudiante.setGenero(estudianteDTO.getGenero());
+        estudiante.setClase(clase);
+        
+        UserEntity user = new UserEntity();
+        user.setUsername(estudianteDTO.getEmail());
+        user.setPassword(estudianteDTO.getContraseña());
+        user.setRoles(obtenerRol());
                 
         userRespositorio.save(user); //Guarda el usuario
         estudiante.setUser(user); //Relaciona el usuario con el estudiante

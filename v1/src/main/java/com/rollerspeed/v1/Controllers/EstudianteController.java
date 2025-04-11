@@ -14,6 +14,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
+
+import org.springframework.validation.BindingResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,7 +70,14 @@ public class EstudianteController {
     )
     public String registrarEstudiante(
             @Parameter(description = "Datos del estudiante a registrar.", required = true, content = @Content(schema = @Schema(implementation = EstudianteDTO.class)))
-            @Valid @ModelAttribute EstudianteDTO estudianteDTO) {
+            @Valid @ModelAttribute EstudianteDTO estudianteDTO,
+            BindingResult result,
+            Model model) {
+
+        if(result.hasErrors()){
+            model.addAttribute("clases",claseServicio.listarTodasLasClases());
+            return "Estudiantes/registro_estudiante";
+        }
         estudianteService.registrarEstudiante(estudianteDTO);
         return "redirect:/estudiantes/registro";
     }

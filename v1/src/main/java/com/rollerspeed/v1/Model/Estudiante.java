@@ -25,8 +25,7 @@ public class Estudiante {
     @Column(nullable = false)
     private String apellido;
 
-    @Email
-    @NotBlank
+
     private String email;
 
     @ManyToOne

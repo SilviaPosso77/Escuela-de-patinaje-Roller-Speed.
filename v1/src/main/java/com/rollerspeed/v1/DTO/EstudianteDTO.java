@@ -2,6 +2,7 @@ package com.rollerspeed.v1.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
@@ -22,8 +23,8 @@ public class EstudianteDTO {
     private String nombre;
     @NotBlank
     private String apellido;
-    @Email
     @NotBlank
+    @Email
     private String email;
     @Past
     private Date fechaNacimiento;
